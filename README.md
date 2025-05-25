@@ -17,6 +17,9 @@ If you see recon.py , main.py , and phantom_tool directory ... They are of no us
 For Recon , Network Mapping , Forensics or OSINT PHM_Recon.py is available , for help you can type:<br/>
 `python3 PHM_Recon.py -h`
 
+Example:
+`>> Python3 PHM_Recon.py <target domain> <port range> <scan type> -wh -dir -sub` 
+
 # Phantom Introduction
 
 Phantom toolbox is divided in three parts...<br/><br/>
