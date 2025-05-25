@@ -52,7 +52,6 @@ def tcp_scan_S(domain):
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.settimeout(1)
             result = sock.connect_ex((domain, port))
-
             if result == 0:
                         try:
                             banner = sock.recv(1024).decode(errors="ignore").strip()
