@@ -48,18 +48,33 @@ def custom_ports(domain,first_port, last_port,args):
 #TCP Scans
 def tcp_scan_S(domain):
     try:
+        print(Fore.LIGHTBLACK_EX + f"   |PORTS|               |SERVICES|" + Style.RESET_ALL)
         for port in ports:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.settimeout(1)
             result = sock.connect_ex((domain, port))
+            service = common_services.get(port, "Unknown Service")
             if result == 0:
                         try:
                             banner = sock.recv(1024).decode(errors="ignore").strip()
-                            print(Fore.LIGHTWHITE_EX + f"[+] {port}  |OPEN" +Style.RESET_ALL)
+                            port_num = len(str(port))
+                            if port_num == 1:
+                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                    |{service}" +Style.RESET_ALL)
+                            if port_num == 2:
+                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                   |{service}" +Style.RESET_ALL)
+                            if port_num == 3:
+                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                  |{service}" +Style.RESET_ALL)
+                            if port_num == 4:
+                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                 |{service}" +Style.RESET_ALL)
+                            if port_num == 5:
+                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                |{service}" +Style.RESET_ALL)
+
+                            #print(Fore.LIGHTWHITE_EX + f"[+] {port}     |{service}" +Style.RESET_ALL)
                             #port_openorfiltered.append(Fore.LIGHTWHITE_EX + f"[+] {port}  |OPEN \n" +Style.RESET_ALL)
                         except socket.error:
                             #port_openorfiltered.append(Fore.LIGHTWHITE_EX + f"[+] {port}  |OPEN \n" +Style.RESET_ALL )
-                            print(Fore.LIGHTWHITE_EX + f"[+] {port}  |OPEN" +Style.RESET_ALL)
+                            #print(Fore.LIGHTWHITE_EX + f"[+] {port}     |{service}" +Style.RESET_ALL)
+                            pass
             sock.close()
     except KeyboardInterrupt:
                 print(Fore.RED + "\n[!] Scan interrupted by user."  +Style.RESET_ALL )

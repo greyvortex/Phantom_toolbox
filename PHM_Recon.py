@@ -46,7 +46,9 @@ if __name__ == "__main__":
     print(Fore.BLUE+ f"Starting Recon at Date: {current_date} | Time: {current_time}"+Style.RESET_ALL)
 
     if not (args.sT or args.sP or args.sA or args.sU or args.sF or args.sX or args.sN):
-        args.sT = True
+        if not (args.pS or args.pC or args.pA):
+            args.sT = True
+            args.pS = True
 
     if args.pS:
         PortScanner.common_ports(target,args)
