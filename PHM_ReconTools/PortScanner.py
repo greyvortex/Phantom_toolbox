@@ -59,15 +59,15 @@ def tcp_scan_S(domain):
                             banner = sock.recv(1024).decode(errors="ignore").strip()
                             port_num = len(str(port))
                             if port_num == 1:
-                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                    |{service}" +Style.RESET_ALL)
+                                print(Fore.LIGHTWHITE_EX + f"      {port}                  |{service}" +Style.RESET_ALL)
                             if port_num == 2:
-                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                   |{service}" +Style.RESET_ALL)
+                                print(Fore.LIGHTWHITE_EX + f"     {port}                   |{service}" +Style.RESET_ALL)
                             if port_num == 3:
-                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                  |{service}" +Style.RESET_ALL)
+                                print(Fore.LIGHTWHITE_EX + f"     {port}                   |{service}" +Style.RESET_ALL)
                             if port_num == 4:
-                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                 |{service}" +Style.RESET_ALL)
+                                print(Fore.LIGHTWHITE_EX + f"    {port}                    |{service}" +Style.RESET_ALL)
                             if port_num == 5:
-                                print(Fore.LIGHTWHITE_EX + f"[+] {port}                |{service}" +Style.RESET_ALL)
+                                print(Fore.LIGHTWHITE_EX + f"    {port}                    |{service}" +Style.RESET_ALL)
 
                             #print(Fore.LIGHTWHITE_EX + f"[+] {port}     |{service}" +Style.RESET_ALL)
                             #port_openorfiltered.append(Fore.LIGHTWHITE_EX + f"[+] {port}  |OPEN \n" +Style.RESET_ALL)
