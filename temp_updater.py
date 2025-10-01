@@ -1,6 +1,6 @@
 import os
 import shutil
-import PHM_UtilityTools.sudo as sudo
+from PHM_UtilityTools import updatemanager
 def upgrade_UpdateManager():
     src = "temp_usr/Phantom_Toolbox-main/PHM_UtilityTools/updatemanager.py"
     dst = "PHM_UtilityTools/updatemanager.py"
