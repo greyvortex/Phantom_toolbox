@@ -1,1 +1,2 @@
-from .updatemanager import get_latest_commit_hash
+from .updatemanager import sudo
+from .log_manager import logger
