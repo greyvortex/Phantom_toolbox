@@ -77,3 +77,5 @@ Phantom Recon has various kinds of Recon , Network Mapping , Forensics , and OSI
  . Wordlist contains directory names from various sources reliable for most of the scans ... <br/>
  . If you want to use custom wordlist, you will have to add the path manually.<br/>
    You can use `-dir` for directory enumeration.<br>
+`Now has a Built-in Log Manager and Update Manager.`
+`Under Development, So few things might not work as intended`
