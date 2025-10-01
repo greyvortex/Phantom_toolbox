@@ -21,12 +21,17 @@ def comparator(new_hash):
     if os.path.exists(file_path):
         with open(file_path,"r") as file:
             hash_data = file.read()
-            lines = file.readlines()
+            lines = hash_data.splitlines()
             last_hash = lines[-1] if lines else None
             print(f"Last Hash: {last_hash}")
             print(f"New Hash: {new_hash}")
             if last_hash == new_hash:
                 print("No update available.")
+                return 0
+            elif(last_hash == None):
+                with open(file_path,"a") as file:
+                    file.write(new_hash)
+                print("First run , no updates available.")
                 return 0
             else:
                 with open(file_path,"a") as file:
