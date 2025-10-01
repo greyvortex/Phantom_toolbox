@@ -45,7 +45,6 @@ start_port, end_port = map(int, port_range.split("-"))
 if __name__ == "__main__":
     print(Fore.BLUE+ f"Phantom Recon v0.1.5 | By [Phantom Group]"+Style.RESET_ALL)
     print(Fore.BLUE+ f"Starting Recon at Date: {current_date} | Time: {current_time}"+Style.RESET_ALL)
-    updatemanager.get_latest_commit_hash()
     updatemanager.comparator(updatemanager.get_latest_commit_hash())
 
     if not (args.sT or args.sP or args.sA or args.sU or args.sF or args.sX or args.sN):
