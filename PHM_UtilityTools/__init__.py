@@ -1,0 +1,1 @@
+from .updatemanager import get_latest_commit_hash
