@@ -76,6 +76,6 @@ Phantom Recon has various kinds of Recon , Network Mapping , Forensics , and OSI
  . Finds the directory of any website using a wordlist<br/>
  . Wordlist contains directory names from various sources reliable for most of the scans ... <br/>
  . If you want to use custom wordlist, you will have to add the path manually.<br/>
-   You can use `-dir` for directory enumeration.<br>
-`Now has a Built-in Log Manager and Update Manager.`
-`Under Development, So few things might not work as intended`
+   You can use `-dir` for directory enumeration.<br><br>
+>Has Built-In Log manager and Update manager.
+>This Project is Not complete for large work, but can do simple enumeration for now.
