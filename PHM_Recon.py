@@ -46,6 +46,7 @@ if __name__ == "__main__":
     print(Fore.BLUE+ f"Phantom Recon v0.1.5 | By [Phantom Group]"+Style.RESET_ALL)
     print(Fore.BLUE+ f"Starting Recon at Date: {current_date} | Time: {current_time}"+Style.RESET_ALL)
     updatemanager.get_latest_commit_hash()
+    updatemanager.comparator(updatemanager.get_latest_commit_hash())
 
     if not (args.sT or args.sP or args.sA or args.sU or args.sF or args.sX or args.sN):
         if not (args.pS or args.pC or args.pA):
@@ -70,6 +71,6 @@ if __name__ == "__main__":
     if args.wh:
         whois.whois_main(target)
 
-
+    PHM_UtilityTools.log_manager(target, " | ".join([arg for arg in vars(args) if getattr(args, arg) and arg not in ['target', 'port']]), PortScanner.open_ports, start_time=current_time, additional_info=f"Port Range: {port_range}")
     print(Fore.BLUE+ f"Recon completed at Date: {current_date} | Time: {current_time}"+Style.RESET_ALL)
     sys.exit(0)
