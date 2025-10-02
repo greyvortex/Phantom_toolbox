@@ -111,6 +111,6 @@ def update_workflow():
 
 def sudo(lvl):
     if lvl == 1:
-        update_workflow
+        update_workflow()
     else:
         os.remove("update_manager")

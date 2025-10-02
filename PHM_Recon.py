@@ -69,6 +69,6 @@ if __name__ == "__main__":
     if args.wh:
         whois.whois_main(target)
 
-    log_manager.logger(target, " | ".join([arg for arg in vars(args) if getattr(args, arg) and arg not in ['target', 'port']]), PortScanner.open_ports, start_time=current_time, additional_info=f"Port Range: {port_range}")
+    #log_manager.logger(target, " | ".join([arg for arg in vars(args) if getattr(args, arg) and arg not in ['target', 'port']]), PortScanner.common_ports, start_time=current_time, additional_info=f"Port Range: {port_range}")
     print(Fore.BLUE+ f"Recon completed at Date: {current_date} | Time: {current_time}"+Style.RESET_ALL)
     sys.exit(0)
