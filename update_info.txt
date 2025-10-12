@@ -1,3 +1,0 @@
-Updated: wordlists/directory.txt , wordlists/subdomain.txt
-Added: example/example.py -> destination/example.py
-Deleted: update_info.txt
