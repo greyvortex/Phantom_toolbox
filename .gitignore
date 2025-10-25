@@ -1,0 +1,4 @@
+mainmenu.py
+*.pyc
+__pycache__/
+bot.py
