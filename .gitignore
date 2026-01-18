@@ -1,7 +1,0 @@
-mainmenu.py
-*.pyc
-__pycache__/
-bot.py
-check.c
-Utils/
-CUtils/
