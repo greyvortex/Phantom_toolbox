@@ -1,4 +1,4 @@
-from PHM_ReconTools import *
+from ReconTools import *
 import argparse
 import os
 import sys
@@ -7,6 +7,12 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 from colorama import Fore,Style
 from datetime import datetime
+import ctypes
+
+# ------------ C lang integration ------------
+
+lib_1 = ctypes.CDLL('./scanner.dll')
+lib_1.main()
 
 # ------------Current Date and Time------------
 now = datetime.now()
