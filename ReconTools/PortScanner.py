@@ -51,7 +51,7 @@ def tcp_scan_S(domain):
         print(Fore.LIGHTBLACK_EX + f"   |PORTS|               |SERVICES|" + Style.RESET_ALL)
         for port in ports:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(10)
+            sock.settimeout(1)
             result = sock.connect_ex((domain, port))
             service = common_services.get(port, "Unknown Service")
             if result == 0:
