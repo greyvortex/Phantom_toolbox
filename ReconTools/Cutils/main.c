@@ -1,35 +1,24 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "portscanner.h"
+#include "scanner.h"
 
-int main(int argc, char *argv[]) {
-    if (argc != 4) {
-        fprintf(stderr, "Usage: %s <IP_ADDRESS> <PORT> <TIMEOUT_MS>\n", argv[0]);
-        return EXIT_FAILURE;
-    }
+typedef struct{
+    char ip;
+    int st_port;
+    int end_port;
+} target;
 
-    const char *ip = argv[1];
-    int port = atoi(argv[2]);
-    int timeout_ms = atoi(argv[3]);
+void port_scanner(const char *ip, int start_port, int end_port) {
+    initialize_sockets();
+    printf("Scanning %s from port %d to %d...\n", ip, start_port, end_port);
+    cleanup_sockets();
+}
 
-    if (port <= 0 || port > 65535) {
-        fprintf(stderr, "Invalid port number. Must be between 1 and 65535.\n");
-        return EXIT_FAILURE;
-    }
-
-    if (timeout_ms < 0) {
-        fprintf(stderr, "Timeout must be a non-negative integer.\n");
-        return EXIT_FAILURE;
-    }
-
-    int result = scan_port(ip, port, timeout_ms);
-    if (result < 0) {
-        fprintf(stderr, "Error scanning port %d on %s\n", port, ip);
-        return EXIT_FAILURE;
-    }
-
-    return EXIT_SUCCESS;
-
-
+int main(){
+    target main;
+    main.ip = "120.12.12.0";
+    main.st_port = 22;
+    main.end_port = 23;
+    port_scanner(&main.ip, main.st_port , main.end_port);
 }

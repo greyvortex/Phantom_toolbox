@@ -7,6 +7,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 from colorama import Fore,Style
 from datetime import datetime
+import ctypes
+
+c-orc = ctypes.CDLL(os.path.join(os.path.dirname(__file__), 'ReconTools', 'Cutils', 'scanEngine.dll'))
 
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
