@@ -1,14 +1,14 @@
 from ReconTools import *
 import argparse
-import os
 import sys
-import concurrent.futures
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 from colorama import Fore,Style
 from datetime import datetime
-# import ctypes
 
+# import ctypes
+#import concurrent.futures 
+# import os
 # c-orc = ctypes.CDLL(os.path.join(os.path.dirname(__file__), 'ReconTools', 'Cutils', 'scanEngine.dll'))
 
 now = datetime.now()

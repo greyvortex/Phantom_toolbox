@@ -1,4 +1,4 @@
 *.exe
-reconcli.py
-recongui.py
+phantomcli.py
+phantomgui.py
 __pycache__/
