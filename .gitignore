@@ -1,1 +1,4 @@
 *.exe
+reconcli.py
+recongui.py
+__pycache__/
