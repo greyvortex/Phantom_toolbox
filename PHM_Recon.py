@@ -48,7 +48,7 @@ if __name__ == "__main__":
     print(Fore.BLUE+ f"Phantom Recon v0.1.5 | By [Phantom Group]"+Style.RESET_ALL)
     print(Fore.BLUE+ f"Starting Recon at Date: {current_date} | Time: {current_time}"+Style.RESET_ALL)
     if not (args.sT or args.sP or args.sA or args.sU or args.sF or args.sX or args.sN):
-        if not (args.pS or args.pC or args.pA):
+        if not (args.pS or args.pC or args.pA or args.wh or args.sub or args.dir):
             args.sT = True
             args.pS = True
 

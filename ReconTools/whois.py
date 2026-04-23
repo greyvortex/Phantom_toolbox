@@ -1,5 +1,6 @@
 import socket
 from colorama import Fore, Style
+import requests
 
 
 whois_servers = {
@@ -49,4 +50,5 @@ def whois_lookup(target):
                 response += data
         return response.decode(errors="ignore")
     except Exception as e:
-        return f"[!] Error connecting to WHOIS server: {e}"
+        requests.get(f"https://api.api-ninjas.com/v1/whois?domain={target}", headers={"X-Api-Key": "YOUR_API_KEY"})
+        return Fore.RED +  f"[!] Error connecting to WHOIS server: {e}" + Style.RESET_ALL   
