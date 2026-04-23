@@ -4,21 +4,23 @@ import requests
 
 
 whois_servers = {
-    ".com": "whois.verisign-grs.com",
-    ".net": "whois.verisign-grs.com",
-    ".org": "whois.pir.org",
-    ".in": "whois.registry.in",
-    ".co.in": "whois.registry.in",
-    ".edu.in": "whois.registry.in",
-    ".gov.in": "whois.registry.in",
-    ".io": "whois.nic.io",
-    ".me": "whois.nic.me"
+    ".com": ["whois.verisign-grs.com"],
+    ".net": ["whois.verisign-grs.com"],
+    ".org": ["whois.pir.org"],
+    ".in": ["whois.inregistry.net", "whois.registry.in"],
+    ".co.in": ["whois.inregistry.net", "whois.registry.in"],
+    ".edu.in": ["whois.inregistry.net", "whois.registry.in"],
+    ".gov.in": ["whois.inregistry.net", "whois.registry.in"],
+    ".io": ["whois.nic.io"],
+    ".me": ["whois.nic.me"]
 }
+
 
 def whois_main(target):
     print(Fore.LIGHTBLACK_EX + f"[+] Performing WHOIS lookup for: {target}")
     result = whois_lookup(target)
     print(Fore.LIGHTBLACK_EX + f"{result}")
+
 
 def extract_tld(target):
     parts = target.lower().split('.')
@@ -36,19 +38,24 @@ def extract_tld(target):
 def whois_lookup(target):
     tld = extract_tld(target)
     if not tld:
-        return Fore.RED + f"[-] Unsupported or unknown TLD for domain '{target}'."+  Style.RESET_ALL
-    server = whois_servers[tld]
-    try:
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.connect((server, 43))
-            s.sendall((target + "\r\n").encode())
-            response = b""
-            while True:
-                data = s.recv(4096)
-                if not data:
-                    break
-                response += data
-        return response.decode(errors="ignore")
-    except Exception as e:
-        requests.get(f"https://api.api-ninjas.com/v1/whois?domain={target}", headers={"X-Api-Key": "YOUR_API_KEY"})
-        return Fore.RED +  f"[!] Error connecting to WHOIS server: {e}" + Style.RESET_ALL   
+        return Fore.RED + f"[-] Unsupported or unknown TLD for domain '{target'.' ]}" + Style.RESET_ALL
+
+    servers = whois_servers[tld]
+    last_error = None
+    for server in servers:
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.connect((server, 43))
+                s.sendall((target + "
+").encode())
+                response = b""
+                while True:
+                    data = s.recv(4096)
+                    if not data:
+                        break
+                    response += data
+            return response.decode(errors="ignore")
+        except Exception as e:
+            last_error = e
+
+    return Fore.RED + f"[!] Error connecting to WHOIS server(s) for '{target}': {last_error}" + Style.RESET_ALL
