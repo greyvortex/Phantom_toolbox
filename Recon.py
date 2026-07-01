@@ -33,6 +33,10 @@ parser.add_argument('-sX', action='store_true', help='Xmas scan')
 parser.add_argument('-sN', action='store_true', help='Null scan')
 parser.add_argument('-sP', action='store_true', help='Ping host activity scan')
 parser.add_argument('-wh', action='store_true', help='whois lookup')
+parser.add_argument('-wh-server', '--wh-server', dest='wh_server', type=str, default=None,
+                     help='Query a specific WHOIS server directly (used with -wh)')
+parser.add_argument('-wh-raw', '--wh-raw', dest='wh_raw', action='store_true',
+                     help='Print raw WHOIS output only, skip parsed summary (used with -wh)')
 parser.add_argument('-sub', action='store_true', help='Subdomain enumeration')
 parser.add_argument('-dir', action='store_true', help='Directory scanner')
 #parser.add_argument('--help', action='help', help='Show this help message and exit')
@@ -68,7 +72,7 @@ if __name__ == "__main__":
         directory.run_dir_scan(target)
 
     if args.wh:
-        whois.whois_main(target)
+        whois.whois_main(target, server=args.wh_server, raw=args.wh_raw)
 
     #log_manager.logger(target, " | ".join([arg for arg in vars(args) if getattr(args, arg) and arg not in ['target', 'port']]), PortScanner.common_ports, start_time=current_time, additional_info=f"Port Range: {port_range}")
     print(Fore.BLUE+ f"Recon completed at Date: {current_date} | Time: {current_time}"+Style.RESET_ALL)
